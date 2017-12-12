@@ -1,0 +1,1 @@
+java -cp .:/e/testProj/sendgrid-java-2.2.0.jar:/e/testProj/smtpapi-java-1.1.1.jar:/e/testProj/httpmime-4.3.4.jar:/d/SFS2X/extensions/__lib__/org.json.jar:/d/SFS2X/extensions/__lib__/httpclient-4.3.6.jar:/d/SFS2X/extensions/__lib__/commons-logging-1.1.3.jar:/d/SFS2X/extensions/__lib__/httpcore-4.4.1.jar com.geng.MailTest
