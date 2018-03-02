@@ -1,9 +1,13 @@
 package com.geng;
 
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Formatter;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Created by GengYongJiang on 2017/6/12.
@@ -34,14 +38,17 @@ public class Main {
         int getValue(){return value;}
     }
 
-    public static void main(String[] argvs){
-        System.out.println("aaaaaaa".concat("   ").concat("sadf"));
-        long a = 0L;
-        if(a == 0){
-            System.out.println("a == 0");
-        }else{
-            System.out.println("a != 0");
-        }
+    public static void main(String[] args){
+        System.out.println("hello!!");
+
+        List<String> collected = new ArrayList<>();
+        //集合迭代与
+        collected  = Stream.of("a","b","c").map(value -> value.toUpperCase()).collect(Collectors.toList());//集合迭代 转换值
+
+        System.out.println(collected);
+
+        collected  = Stream.of("a","b","ac").filter(value -> !value.contains("a")).collect(Collectors.toList());//集合迭代 过滤
+        System.out.println(collected);
     }
 }
 
