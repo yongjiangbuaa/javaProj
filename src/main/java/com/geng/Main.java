@@ -1,13 +1,14 @@
 package com.geng;
 
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Formatter;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static java.util.Arrays.asList;
+import static java.util.stream.Collectors.toCollection;
+import static java.util.stream.Collectors.toList;
 
 /**
  * Created by GengYongJiang on 2017/6/12.
@@ -40,15 +41,27 @@ public class Main {
 
     public static void main(String[] args){
         System.out.println("hello!!");
-
+        /**
+         * lamda 表达式 在集合上的应用 stream方法
+         */
         List<String> collected = new ArrayList<>();
-        //集合迭代与
-        collected  = Stream.of("a","b","c").map(value -> value.toUpperCase()).collect(Collectors.toList());//集合迭代 转换值
+ //值转换值 map
+        collected  = Stream.of("a","b","c").map(value -> value.toUpperCase()).collect(toList());
 
         System.out.println(collected);
-
-        collected  = Stream.of("a","b","ac").filter(value -> !value.contains("a")).collect(Collectors.toList());//集合迭代 过滤
+//过滤filer
+        collected  = Stream.of("a","b","ac").filter(value -> !value.contains("a")).collect(toList());
         System.out.println(collected);
+
+//值转换为流 flatMap   合并多个集合的例子
+        collected = Stream.of(asList(1,2),asList(3,4)).flatMap(n -> n.stream().map(i -> String.valueOf(i))).collect(toList());
+        System.out.println("_____"+collected);
+
+        //使用收集器 1.toCollection  至于toList，toSet也同样 2.maxBy minBy 3.patitioningBy 4.groupingBy(Stram,function) 5.连接字符串  Collectors.joining(sep,prefix,sufix)
+
+
+
+
     }
 }
 
