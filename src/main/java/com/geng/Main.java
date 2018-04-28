@@ -40,6 +40,16 @@ public class Main {
     }
 
     public static void main(String[] args){
+        int pastSince = Math.toIntExact (System.currentTimeMillis() - 1521193379466L);// + recoverTime);
+        System.out.println("pastSince="+pastSince);
+    }
+    public static void main1(String[] args){
+
+        String item = "::200006:1::";
+        String item1 = "boo:and:foo";
+        String[] itemArr = item.split(":");
+
+
         System.out.println("hello!!");
         /**
          * lamda 表达式 在集合上的应用 stream方法

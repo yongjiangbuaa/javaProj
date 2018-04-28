@@ -3,5 +3,6 @@ repositories {
     mavenCentral()
 }
 dependencies {
+    compile 'com.google.protobuf:protobuf-java:3.5.1'
     compile group: 'com.sendgrid', name: 'sendgrid-java', version: '2.2.0'
 }
