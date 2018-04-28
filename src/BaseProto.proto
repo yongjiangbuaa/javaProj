@@ -1,0 +1,49 @@
+syntax = "proto3";
+package com.elex.march.protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+option java_package = "com.elex.march.protobuf";
+option java_outer_classname = "BaseProtos";
+
+option csharp_namespace = "Google.Protobuf.Examples.AddressBook";
+
+message MarchRequest {
+  string device = 1;
+  string cmd = 2;
+  string uid = 3;
+  option int32 type = 4;  // type
+  option String roleId = 6 //for cmd role.choose,role.recover
+
+
+
+  message PhoneNumber {
+    string number = 1;
+    PhoneType type = 2;
+  }
+
+  repeated PhoneNumber phones = 4;
+
+  google.protobuf.Timestamp last_updated = 5;
+}
+
+message MarchResponse {
+    string uid = 1;
+    int32 heart =2;
+    int64 gold
+      enum RoleStatus {
+        NORMAL = 0;
+        DEAD = 1;
+        GOOD_END = 2;
+      }
+
+    message Role {
+        string roleId = 1;
+        RoleStatus status = 2;
+    }
+    repeated Role roles = 1;
+}
+
+message MarchPush {
+
+}
