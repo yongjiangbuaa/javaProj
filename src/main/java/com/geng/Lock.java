@@ -92,7 +92,6 @@ public class Lock extends Thread {
         for(int i =1 ; i<=60;i++ ){
             new Lock().start();
         }
-        Thread.activeCount()
         while(Thread.activeCount()>1){
             Thread.yield();
         }
