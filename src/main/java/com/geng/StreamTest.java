@@ -13,8 +13,8 @@ import java.util.stream.Stream;
 public class StreamTest {
     public static void main(String argvs[]){
         StreamTest t = new StreamTest();
-        t.fibonacci();
-//        t.iterateFileLine();
+//        t.fibonacci();
+        t.iterateFileLine();
 
     }
 
@@ -24,8 +24,9 @@ public class StreamTest {
     }
     public void iterateFileLine(){
         try {
-            long count =Files.lines(Paths.get("/tmp/StreamTest.java"),Charset.defaultCharset()).count();
-            System.out.println("count="+count);
+            Stream<String> lines=Files.lines(Paths.get("/tmp/StreamTest.java"),Charset.defaultCharset());
+            Stream<String> words = lines.flatMap(line -> Stream.of(line.split("s|f")));
+            words.forEach(s -> System.out.println(s));
         } catch (IOException e) {
             e.printStackTrace();
         }
