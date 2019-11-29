@@ -10,13 +10,13 @@ public class GameTest {
     String ip;
     String port;
     String protocal;
-   Logger logger = LoggerFactory.sdf;
-    public static void main(String[] argvs){
-        NettryClient client = new NettyC裂蹄牛；
-        HttpClient httpClient = Defau
+//   Logger logger = LoggerFactory.sdf;
+//    public static void main(String[] argvs){
+//        NettryClient client = new NettyC裂蹄牛；
+//        HttpClient httpClient = Defau
 
 
 
 
-    }
+//    }
 }
