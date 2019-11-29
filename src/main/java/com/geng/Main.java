@@ -1,8 +1,10 @@
 package com.geng;
 
 
+import java.io.UnsupportedEncodingException;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -40,8 +42,10 @@ public class Main {
     }
 
     public static void main(String[] args){
-        int pastSince = Math.toIntExact (System.currentTimeMillis() - 1521193379466L);// + recoverTime);
-        System.out.println("pastSince="+pastSince);
+        ReentrantLock lock = new ReentrantLock();
+            System.out.println(lock.getClass().getName());
+        System.out.println(lock.getClass().getSimpleName());
+        System.out.println(ReentrantLock.class);
     }
     public static void main1(String[] args){
 

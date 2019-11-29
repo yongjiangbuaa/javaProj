@@ -69,14 +69,14 @@ public class Lock extends Thread {
             atomInteger.incrementAndGet();
 
             //atomicInteger实现;
-//            atomicInteger();
+            atomicInteger();
 
             //测试LongAdder
-//            longAdder.increment();
+            longAdder.increment();
 
 
             //测试volatile和cas  乐观锁
-//            cas();
+            cas();
 
             //测试锁
 //            synchronized(lock){
