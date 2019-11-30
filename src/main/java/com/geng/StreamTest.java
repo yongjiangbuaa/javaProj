@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -34,5 +36,29 @@ public class StreamTest {
 
     public void fibonacci(){
         Stream.iterate(1,n -> n*n+1).limit(3).forEach(n->System.out.println(n));
+    }
+
+    public void generater(){
+//                Object[] men = IntStream.range(0,10)
+//                                          .filter(p -> p%9 == 0)
+//                                          .toArray(Object[]::new);
+        Stream<String> stringStream = null;
+        try {
+            stringStream = Files.lines(Paths.get("/tmp/StreamTest.java"), Charset.defaultCharset());
+            List<String> asList = stringStream.collect(ArrayList::new, ArrayList::add,
+                                                                    ArrayList::addAll);
+            String concat = stringStream.collect(StringBuilder::new, StringBuilder::append,
+                                                              StringBuilder::append)
+                    .toString();
+            // groupBy  to Map
+//            Map<String, List<Person>> peopleByCity
+//              = personStream.collect(Collectors.groupingBy(Person::getCity));
+            //groupBy two times to a MapToMap
+//            Map<String, Map<String, List<Person>>> peopleByStateAndCity
+//     *         = personStream.collect(Collectors.groupingBy(Person::getState,
+//                    *                                                      Collectors.groupingBy(Person::getCity)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
